@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+    <table border="1" align="center">
+        <tr>
+            {% for i in th1 %}
+            <td>{{ i }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for i in th2 %}
+            <td>{{ i }}</td>
+            {% endfor %}
+        </tr>
+        {% for i in td1 %}
+        <tr>
+            {% for j in i %}
+            <td>{{ j }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</pre>
+</body>
+</html>

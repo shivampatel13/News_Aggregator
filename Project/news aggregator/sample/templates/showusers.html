@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>userdet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<!--style>
+    table {
+  background-color: lightgrey;
+  width: 400px;
+  border: 15px solid black;
+  padding: 50px;
+  margin: 20px;
+}
+</style-->
+
+<body>
+<center>
+    <div class="container" style="width:500px">
+<table class="table table-bordered" >
+<caption><h2> User detail </h2></caption>
+
+        <tr align="left">
+         <th> Id </th>
+         <th> Name</th>
+         <th> Password</th>
+         <th> Actions </th>
+        </tr>
+
+{% for U in users %}
+<tr>
+    <td> {{ U.id}}</td>
+    <td> {{ U.name}}</td>
+    <td> {{ U.psw}}</td>
+    <td> <a href="/edit/{{ U.id }}" class="btn btn-success">Edit</a>&nbsp;<a href="/delete/{{ U.id }}" class="btn btn-danger">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+    </center>
+</div>
+<br>
+<br>
+</body>
+</html>

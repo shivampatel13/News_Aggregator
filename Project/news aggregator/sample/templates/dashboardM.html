@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DSPH News</title>
+{% load static %}
+
+
+ <link href="{% static 'css/s5.css' %}" rel="stylesheet" type="text/css" />
+ <link href="{% static 'css/1.css' %}" rel="stylesheet" type="text/css" />
+
+<style>
+</style>
+</head>
+
+<body>
+{% if request.session.email %}
+{% block content %}
+<div class="navbar">
+    <div class="top">
+        <a href="/aboutus"></a>
+        <div class="logo">
+            <h2>DSPH News</h2>
+        </div>
+        <div class="seesion">
+            <h2>  {{ request.session.email }} <a href="/logout/"> <img src="{% static 'img/logout.png' %}" height="40px" width="50px;"> </a></h2>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+<div class="main">
+    <div class="news">
+        <h2>Recent News</h2>
+            {% for i,j in data.items %}
+                <div class="content">
+                    <marquee direction="up" scrollamount=1>
+                        <h3><p><a href="{{ i }} " class="a-content" onclick="return false;" >{{ j }}</a></p></h3>
+                    </marquee>
+                </div>
+            {% endfor %}
+    </div>
+
+    <div class="news1">
+        <h2>vadodara News</h2>
+            {% for i,j in data1.items %}
+                 <div class="content1">
+                     <marquee direction="up" scrollamount=1>
+                         <h3><p><a href="{{ i }} " class="a-content" onclick="return true;">{{ j }}</a></p></h3>
+                     </marquee>
+                 </div>
+            {% endfor %}
+    </div>
+
+    <div class="art">
+        <h2>Recent Articles</h2>
+
+        <div class="art-content">
+            <a href="https://accounts.google.com/AccountChooser" target="_self" id="s1">
+                <div class="slideshow-container">
+                        {% for i in data3 %}
+                            <div class="mySlides fade">
+                                <a href="{{ i.0.0 }}"><img src="{{ i.0.1 }} "  onclick="return false;" height="50%" width="100%">
+                                <br><br><Br><br><br><Br><br><br>
+
+                                    <div class="text"  onclick="return false;"><h3>{{ i.1 }}</h3></div>
+                                </a>
+
+                            </div>
+                        {% endfor %}
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div><br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+
+                </div>
+            </a>
+            <!--p><h2><b>Click on picture to read Article</b></h2>
+            </p-->
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <a href="/aboutus">
+
+        <div class="logo">
+            <h2>DSPH News</h2>
+        </div>
+    </a>
+    <div class="desc">
+        <p>Email :dsphnews@gmail.com<br>Mobile : +91 8154850006<br>                    Location :19/50 Mansarovar Complex,<br>Opp Gurudwara,Chhani,Vadodara-391740</p>
+    </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+{% endblock %}
+{% else %}
+{% include "home.html" %}
+{% endif %}
+</body>
+</html>

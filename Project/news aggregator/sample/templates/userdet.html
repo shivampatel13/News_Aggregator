@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+div {
+  background-color: lightgrey;
+  width: 400px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+</style>
+
+<body>
+
+<form method="post" class="form" action="/insuser/">
+    {% csrf_token %}
+    <center>
+        <div>
+         <br>
+            <h2> User Detail </h2>
+             <br>
+            <table>
+               {{ form.as_table }}
+          </table>
+            <br>
+          <button type= "submit" class="submit class=btn btn-success"> SUBMIT</button>
+        </div>
+    </center>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<form method="post" action="/update1/{{user.id}}">
+    {% csrf_token %}
+
+    <h3> Update USer Detail</h3>
+    Id: <input type="text" value="{{ user.id }}" name="id" id="id_id" disabled><br>
+    Name: <input type="text" value="{{ user.name }}" name="name" id="id_name"><br>
+    Password: <input type="text" value="{{ user.psw }}" name="psw" id="id_psw"><br>
+
+    <button type="submit">Update</button>
+
+</form>
+</body>
+</html>
